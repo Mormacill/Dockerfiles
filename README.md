@@ -9,11 +9,11 @@ podman build -f Dockerfile-rocky9-systemd -t rockylinux-systemd-desktop:9 .
 podman run -itd -p 3333:3389 --name  rockylinux9-s-d rockylinux-systemd-desktop:9
  ```
 
-## get into the container environment
+## get into the container environment:
 ```bash
 podman exec -it rockylinux9-s-d bash
  ```
-### create user and start xrdp
+### create user and start xrdp:
 ```bash
 adduser NAME
 passwd NAME
