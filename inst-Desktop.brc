@@ -1,0 +1,32 @@
+#!/bin/bash
+function installDesktop
+{
+WITH_DESKTOP=$1
+DESKTOP_FlAVOUR=$2
+
+if [ "$WITH_DESKTOP" = "yes" ]; then
+  case $DESKTOP_FlAVOUR in
+
+    Gnome)
+        dnf groupinstall "Workstation" -y --allowerasing
+        dnf install xrdp -y
+        ;;
+    KDE)
+        dnf groupinstall "KDE Plasma Workspaces" -y --allowerasing
+        dnf install xrdp -y
+        ;;
+    Xfce)
+        dnf groupinstall "Xfce" -y --allowerasing
+        dnf install xrdp -y
+        sed -i '90s/$/ xfce4-session/' /usr/libexec/xrdp/startwm.sh
+        ;;
+    *)
+        echo "Desktop $DESKTOP_FlAVOUR not available!"
+        ;;
+
+    esac
+
+  dnf install nano sudo wget firefox -y
+
+fi
+}

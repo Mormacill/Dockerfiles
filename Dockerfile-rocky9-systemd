@@ -7,16 +7,16 @@ ENV WITH_DESKTOP=yes
 # set Gnome, KDE or Xfce
 ENV DESKTOP_FlAVOUR=Gnome
 
+###################################
+
 RUN dnf update -y
 RUN dnf install epel-release -y
 RUN crb enable
 RUN dnf install systemd htop -y
 
 
-RUN if [ "$WITH_DESKTOP" = "yes" ]; then \
-
-
-
+COPY inst-Desktop.brc /
+RUN source /inst-Desktop.brc && installDesktop $WITH_DESKTOP $DESKTOP_FlAVOUR
 
 CMD ["/usr/lib/systemd/systemd"]
 
