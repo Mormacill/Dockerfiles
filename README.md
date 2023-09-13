@@ -6,7 +6,7 @@ podman build -f Dockerfile-rocky9-systemd -t rockylinux-systemd-desktop:9 .
 
 ## run container:
   ```bash
-podman run -itd -p 3333:3389 --name  rockylinux9-s-d rockylinux-systemd-desktop:9
+podman run -itd -p 3333:3389 --name rockylinux9-s-d rockylinux-systemd-desktop:9
  ```
 
 ## get into the container environment:

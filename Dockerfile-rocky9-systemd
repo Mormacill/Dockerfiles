@@ -4,8 +4,8 @@ FROM rockylinux:9
 # set yes or no
 ENV WITH_DESKTOP=yes
 
-# set Gnome, KDE or Xfce
-ENV DESKTOP_FlAVOUR=Gnome
+# set Gnome, KDE or Xfce (Xfce recommended)
+ENV DESKTOP_FlAVOUR=Xfce
 
 ###################################
 
