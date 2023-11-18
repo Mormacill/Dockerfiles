@@ -1,0 +1,10 @@
+FROM fedora:39
+
+RUN dnf upgrade -y
+RUN dnf install 'dnf-command(copr)' -y
+RUN dnf copr enable zeno/scrcpy -y
+RUN dnf install scrcpy -y
+
+RUN dnf clean all
+
+CMD ["/usr/bin/scrcpy","--no-audio"]
